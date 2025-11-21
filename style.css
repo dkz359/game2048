@@ -427,3 +427,10 @@ body.dark-mode .game-intro {
         font-size: 35px;
     }
 }
+.footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #776e65;
+}
+
