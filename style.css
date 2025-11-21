@@ -165,12 +165,6 @@ body.dark-mode .game-intro {
     opacity: 0.7;
 }
 
-.header-controls button#sound-toggle-btn,
-.header-controls button#theme-toggle-btn {
-    padding: 0 10px;
-    font-size: 20px;
-}
-
 .game-container {
     position: relative;
     padding: 15px;
@@ -181,6 +175,7 @@ body.dark-mode .game-intro {
     height: 500px;
     margin-top: 40px;
     box-sizing: border-box;
+    touch-action: none;
 }
 
 .grid-container {
@@ -427,10 +422,10 @@ body.dark-mode .game-intro {
         font-size: 35px;
     }
 }
+
 .footer {
     margin-top: 20px;
     text-align: center;
     font-size: 14px;
     color: #776e65;
 }
-

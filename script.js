@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const gameContainer = document.querySelector('.game-container');
     const gridContainer = document.querySelector('.grid-container');
     const tileContainer = document.querySelector('.tile-container');
     const scoreElement = document.getElementById('score');
@@ -486,18 +487,24 @@ document.addEventListener('DOMContentLoaded', () => {
     let mouseStartY = 0;
     let isMouseDown = false;
 
-    document.addEventListener('touchstart', (e) => {
+    gameContainer.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
+        e.preventDefault(); // Prevent default touch behavior (like scrolling)
     }, { passive: false });
 
-    document.addEventListener('touchend', (e) => {
+    gameContainer.addEventListener('touchmove', (e) => {
+        e.preventDefault(); // Prevent scrolling while swiping on the game
+    }, { passive: false });
+
+    gameContainer.addEventListener('touchend', (e) => {
         if (!e.changedTouches.length) return;
 
         const touchEndX = e.changedTouches[0].clientX;
         const touchEndY = e.changedTouches[0].clientY;
 
         handleSwipe(touchStartX, touchStartY, touchEndX, touchEndY);
+        e.preventDefault();
     }, { passive: false });
 
     // Mouse support for swipe
