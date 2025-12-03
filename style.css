@@ -317,6 +317,24 @@ body.dark-mode .game-intro {
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
 }
 
+.tile-4096 {
+    background-color: var(--tile-super-bg);
+    color: var(--tile-super-color);
+    font-size: 30px;
+}
+
+.tile-8192 {
+    background-color: var(--tile-super-bg);
+    color: var(--tile-super-color);
+    font-size: 25px;
+}
+
+.tile-16384 {
+    background-color: var(--tile-super-bg);
+    color: var(--tile-super-color);
+    font-size: 20px;
+}
+
 .tile-super {
     background-color: var(--tile-super-bg);
     color: var(--tile-super-color);

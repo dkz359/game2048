@@ -490,6 +490,12 @@ document.addEventListener('DOMContentLoaded', () => {
     gameContainer.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
+
+        // Allow click events for buttons and links
+        if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.closest('button') || e.target.closest('a')) {
+            return;
+        }
+
         e.preventDefault(); // Prevent default touch behavior (like scrolling)
     }, { passive: false });
 
@@ -499,6 +505,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     gameContainer.addEventListener('touchend', (e) => {
         if (!e.changedTouches.length) return;
+
+        // Allow click events for buttons and links
+        if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.closest('button') || e.target.closest('a')) {
+            return;
+        }
 
         const touchEndX = e.changedTouches[0].clientX;
         const touchEndY = e.changedTouches[0].clientY;
