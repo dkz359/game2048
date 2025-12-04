@@ -38,6 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let won = false;
     let keepPlaying = false;
     let gameHistory = [];
+    const maxUndoCount = 5;
+    let undoCount = maxUndoCount;
 
     const gridSize = 4;
 
@@ -152,19 +154,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     bestScoreElement.textContent = bestScore;
 
-    function saveState() {
-        if (gameHistory.length > 10) gameHistory.shift(); // Limit history
-        gameHistory.push({
-            grid: JSON.parse(JSON.stringify(grid)), // Deep copy
-            score: score,
-            won: won,
-            keepPlaying: keepPlaying
-        });
-        undoButton.disabled = false;
-    }
+    // saveState function removed as it is no longer used
 
     function undo() {
-        if (gameHistory.length === 0) return;
+        if (gameHistory.length === 0 || undoCount <= 0) return;
+
+        undoCount--;
+        undoButton.textContent = `Undo (${undoCount})`;
 
         const previousState = gameHistory.pop();
         grid = previousState.grid;
@@ -191,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        if (gameHistory.length === 0) {
+        if (gameHistory.length === 0 || undoCount <= 0) {
             undoButton.disabled = true;
         }
 
@@ -208,6 +204,9 @@ document.addEventListener('DOMContentLoaded', () => {
         won = false;
         keepPlaying = false;
         gameHistory = [];
+        undoCount = maxUndoCount;
+        console.log('Initializing game, undo count:', undoCount);
+        undoButton.textContent = `Undo (${undoCount})`;
         undoButton.disabled = true;
         updateScore(0);
         clearTiles();
@@ -367,7 +366,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Commit history
             if (gameHistory.length > 10) gameHistory.shift();
             gameHistory.push(stateBeforeMove);
-            undoButton.disabled = false;
+            if (undoCount > 0) {
+                undoButton.disabled = false;
+            }
 
             if (merged) {
                 SoundManager.playMerge();
