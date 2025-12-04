@@ -1,41 +1,45 @@
 :root {
-    --bg-color: #faf8ef;
-    --grid-container-color: #bbada0;
-    --empty-cell-color: #cdc1b4;
-    --text-color: #776e65;
-    --text-light: #f9f6f2;
+    /* Shiba Inu inspired warm color palette */
+    --bg-color: #fff8f0;
+    --grid-container-color: #d4a574;
+    --empty-cell-color: #e8d4bc;
+    --text-color: #8b6f47;
+    --text-light: #fff8f0;
+    --shiba-orange: #f4a460;
+    --shiba-cream: #ffefd5;
+    --shiba-brown: #8b6f47;
 
-    /* Tile colors */
-    --tile-2-bg: #eee4da;
-    --tile-2-color: #776e65;
-    --tile-4-bg: #ede0c8;
-    --tile-4-color: #776e65;
-    --tile-8-bg: #f2b179;
-    --tile-8-color: #f9f6f2;
-    --tile-16-bg: #f59563;
-    --tile-16-color: #f9f6f2;
-    --tile-32-bg: #f67c5f;
-    --tile-32-color: #f9f6f2;
-    --tile-64-bg: #f65e3b;
-    --tile-64-color: #f9f6f2;
-    --tile-128-bg: #edcf72;
-    --tile-128-color: #f9f6f2;
-    --tile-256-bg: #edcc61;
-    --tile-256-color: #f9f6f2;
-    --tile-512-bg: #edc850;
-    --tile-512-color: #f9f6f2;
-    --tile-1024-bg: #edc53f;
-    --tile-1024-color: #f9f6f2;
-    --tile-2048-bg: #edc22e;
-    --tile-2048-color: #f9f6f2;
-    --tile-super-bg: #3c3a32;
-    --tile-super-color: #f9f6f2;
+    /* Tile colors - Shiba themed warm tones */
+    --tile-2-bg: #ffefd5;
+    --tile-2-color: #8b6f47;
+    --tile-4-bg: #ffe4b5;
+    --tile-4-color: #8b6f47;
+    --tile-8-bg: #ffd89b;
+    --tile-8-color: #fff;
+    --tile-16-bg: #ffcc80;
+    --tile-16-color: #fff;
+    --tile-32-bg: #ffb74d;
+    --tile-32-color: #fff;
+    --tile-64-bg: #ffa726;
+    --tile-64-color: #fff;
+    --tile-128-bg: #ff9800;
+    --tile-128-color: #fff;
+    --tile-256-bg: #fb8c00;
+    --tile-256-color: #fff;
+    --tile-512-bg: #f57c00;
+    --tile-512-color: #fff;
+    --tile-1024-bg: #ef6c00;
+    --tile-1024-color: #fff;
+    --tile-2048-bg: #e65100;
+    --tile-2048-color: #fff;
+    --tile-super-bg: #bf360c;
+    --tile-super-color: #fff;
 
     /* Dark Mode Colors */
-    --bg-color-dark: #333;
-    --text-color-dark: #f9f6f2;
-    --grid-container-color-dark: #bbada0;
-    --empty-cell-color-dark: #cdc1b4;
+    --bg-color-dark: #2c2416;
+    --text-color-dark: #ffefd5;
+    --grid-container-color-dark: #8b6f47;
+    --empty-cell-color-dark: #5c4a2f;
 }
 
 * {
@@ -46,27 +50,27 @@
 
 body {
     font-family: 'Nunito', sans-serif;
-    background-color: var(--bg-color);
+    background: linear-gradient(135deg, #fff8f0 0%, #ffe4d0 100%);
     color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
 
 body.dark-mode {
-    background-color: var(--bg-color-dark);
+    background: linear-gradient(135deg, #2c2416 0%, #1a1410 100%);
     color: var(--text-color-dark);
 }
 
 body.dark-mode .score-box {
-    background-color: #8f7a66;
+    background-color: #8b6f47;
 }
 
 body.dark-mode .title,
 body.dark-mode .game-intro {
-    color: #f9f6f2;
+    color: #ffefd5;
 }
 
 .container {
@@ -82,11 +86,38 @@ body.dark-mode .game-intro {
     margin-bottom: 10px;
 }
 
+.title-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.shiba-mascot {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 .title {
     font-size: 80px;
     font-weight: 800;
     line-height: 1;
     margin: 0;
+    color: var(--shiba-orange);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .above-game {
@@ -100,7 +131,7 @@ body.dark-mode .game-intro {
     font-size: 18px;
     line-height: 1.5;
     margin: 0;
-    color: #776e65;
+    color: var(--shiba-brown);
 }
 
 .scores-container {
@@ -110,20 +141,21 @@ body.dark-mode .game-intro {
 }
 
 .score-box {
-    background-color: var(--grid-container-color);
+    background: linear-gradient(135deg, var(--shiba-orange) 0%, #ff9800 100%);
     color: var(--text-light);
     padding: 5px 15px;
-    border-radius: 3px;
+    border-radius: 6px;
     min-width: 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 55px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .score-label {
     font-size: 13px;
-    color: #eee4da;
+    color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -142,9 +174,9 @@ body.dark-mode .game-intro {
 }
 
 .header-controls button {
-    background-color: #8f7a66;
-    border-radius: 3px;
-    color: #f9f6f2;
+    background: linear-gradient(135deg, var(--shiba-orange) 0%, #ff9800 100%);
+    border-radius: 6px;
+    color: #fff;
     border: none;
     padding: 0 20px;
     height: 40px;
@@ -157,22 +189,22 @@ body.dark-mode .game-intro {
     transition: all 0.2s ease;
     overflow: hidden;
     white-space: nowrap;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 8px rgba(244, 164, 96, 0.3);
 }
 
 .header-controls button:hover:not(:disabled) {
-    background-color: #9f8b77;
-    transform: translateY(-1px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(244, 164, 96, 0.4);
 }
 
 .header-controls button:active:not(:disabled) {
     transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(244, 164, 96, 0.3);
 }
 
 .header-controls button:disabled {
-    background-color: #ccc;
+    background: #ccc;
     cursor: not-allowed;
     opacity: 0.6;
     box-shadow: none;
@@ -194,13 +226,14 @@ body.dark-mode .game-intro {
     position: relative;
     padding: 15px;
     cursor: default;
-    background: #bbada0;
-    border-radius: 6px;
+    background: linear-gradient(135deg, var(--grid-container-color) 0%, #c49a6c 100%);
+    border-radius: 10px;
     width: 500px;
     height: 500px;
     margin-top: 40px;
     box-sizing: border-box;
     touch-action: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .grid-container {
@@ -213,8 +246,8 @@ body.dark-mode .game-intro {
 }
 
 .grid-cell {
-    background: rgba(238, 228, 218, 0.35);
-    border-radius: 3px;
+    background: rgba(232, 212, 188, 0.5);
+    border-radius: 6px;
     width: 100%;
     height: 100%;
 }
@@ -233,7 +266,7 @@ body.dark-mode .game-intro {
     position: absolute;
     width: 106.25px;
     height: 106.25px;
-    border-radius: 3px;
+    border-radius: 6px;
     background-color: var(--tile-2-bg);
     color: var(--tile-2-color);
     font-weight: bold;
@@ -243,6 +276,7 @@ body.dark-mode .game-intro {
     align-items: center;
     transition: left 100ms ease-in-out, top 100ms ease-in-out, background-color 100ms ease-in-out;
     z-index: 10;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .tile-new {
@@ -339,7 +373,7 @@ body.dark-mode .game-intro {
     background-color: var(--tile-2048-bg);
     color: var(--tile-2048-color);
     font-size: 35px;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
+    box-shadow: 0 0 30px 10px rgba(230, 81, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
 .tile-4096 {
@@ -373,7 +407,7 @@ body.dark-mode .game-intro {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(238, 228, 218, 0.73);
+    background: rgba(255, 232, 213, 0.95);
     z-index: 100;
     flex-direction: column;
     align-items: center;
@@ -381,16 +415,17 @@ body.dark-mode .game-intro {
     text-align: center;
     animation: fade-in 800ms ease 1200ms;
     animation-fill-mode: both;
+    border-radius: 10px;
 }
 
 .game-message.game-won {
-    background: rgba(237, 194, 46, 0.5);
-    color: #f9f6f2;
+    background: rgba(244, 164, 96, 0.95);
+    color: #fff;
 }
 
 .game-message.game-over {
-    background: rgba(238, 228, 218, 0.73);
-    color: #776e65;
+    background: rgba(255, 232, 213, 0.95);
+    color: var(--shiba-brown);
 }
 
 .game-message p {
@@ -405,15 +440,23 @@ body.dark-mode .game-intro {
 
 .game-message a {
     display: inline-block;
-    background: #8f7a66;
-    border-radius: 3px;
+    background: linear-gradient(135deg, var(--shiba-orange) 0%, #ff9800 100%);
+    border-radius: 6px;
     padding: 0 20px;
     text-decoration: none;
-    color: #f9f6f2;
+    color: #fff;
     height: 40px;
     line-height: 42px;
     cursor: pointer;
     margin-left: 9px;
+    box-shadow: 0 3px 8px rgba(244, 164, 96, 0.3);
+    transition: all 0.2s ease;
+}
+
+.game-message a:hover {
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(244, 164, 96, 0.4);
 }
 
 .game-message a.keep-playing-button {
@@ -424,6 +467,7 @@ body.dark-mode .game-intro {
     margin-top: 30px;
     font-size: 16px;
     line-height: 1.5;
+    color: var(--shiba-brown);
 }
 
 @media screen and (max-width: 520px) {
@@ -438,6 +482,11 @@ body.dark-mode .game-intro {
 
     .title {
         font-size: 40px;
+    }
+
+    .shiba-mascot {
+        width: 50px;
+        height: 50px;
     }
 
     .game-intro {
@@ -470,5 +519,57 @@ body.dark-mode .game-intro {
     margin-top: 20px;
     text-align: center;
     font-size: 14px;
-    color: #776e65;
+    color: var(--shiba-brown);
+}
+
+/* Shiba Inu Tile Styles */
+.tile {
+    flex-direction: column !important;
+    padding-top: 10px !important;
+}
+
+.tile-shiba {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 3px;
+}
+
+.tile-number {
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.tile-128 .tile-number,
+.tile-256 .tile-number,
+.tile-512 .tile-number {
+    font-size: 24px;
+}
+
+.tile-1024 .tile-number,
+.tile-2048 .tile-number {
+    font-size: 20px;
+}
+
+.tile-4096 .tile-number,
+.tile-8192 .tile-number,
+.tile-16384 .tile-number {
+    font-size: 18px;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 520px) {
+    .tile {
+        padding-top: 8px !important;
+    }
+
+    .tile-shiba {
+        width: 35px;
+        height: 35px;
+    }
+
+    .tile-number {
+        font-size: 24px;
+    }
 }

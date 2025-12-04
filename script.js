@@ -175,11 +175,42 @@ document.addEventListener('DOMContentLoaded', () => {
         grid.forEach((row, r) => {
             row.forEach((cell, c) => {
                 if (cell) {
-                    // Re-create tile element
+                    // Re-create tile element with Shiba image
                     const tile = document.createElement('div');
                     tile.classList.add('tile', `tile-${cell.value}`);
                     if (cell.merged) tile.classList.add('tile-merged');
-                    tile.textContent = cell.value;
+
+                    // Add Shiba image
+                    const shibaImages = {
+                        2: 'shiba_happy_1764847389696.png',
+                        4: 'shiba_happy_1764847389696.png',
+                        8: 'shiba_excited_1764847409328.png',
+                        16: 'shiba_excited_1764847409328.png',
+                        32: 'shiba_cool_1764847426626.png',
+                        64: 'shiba_cool_1764847426626.png',
+                        128: 'shiba_amazed_1764847447710.png',
+                        256: 'shiba_amazed_1764847447710.png',
+                        512: 'shiba_proud_1764847467551.png',
+                        1024: 'shiba_proud_1764847467551.png',
+                        2048: 'shiba_proud_1764847467551.png',
+                        4096: 'shiba_proud_1764847467551.png',
+                        8192: 'shiba_proud_1764847467551.png',
+                        16384: 'shiba_proud_1764847467551.png',
+                        32768: 'shiba_proud_1764847467551.png'
+                    };
+
+                    if (shibaImages[cell.value]) {
+                        const shibaImg = document.createElement('img');
+                        shibaImg.src = shibaImages[cell.value];
+                        shibaImg.classList.add('tile-shiba');
+                        tile.appendChild(shibaImg);
+                    }
+
+                    const numberSpan = document.createElement('span');
+                    numberSpan.classList.add('tile-number');
+                    numberSpan.textContent = cell.value;
+                    tile.appendChild(numberSpan);
+
                     setTilePosition(tile, r, c);
                     tileContainer.appendChild(tile);
                     cell.element = tile; // Update reference
@@ -241,7 +272,39 @@ document.addEventListener('DOMContentLoaded', () => {
     function createTile(r, c, value) {
         const tile = document.createElement('div');
         tile.classList.add('tile', `tile-${value}`, 'tile-new');
-        tile.textContent = value;
+
+        // Add Shiba Inu expression based on tile value
+        const shibaImages = {
+            2: 'shiba_happy_1764847389696.png',
+            4: 'shiba_happy_1764847389696.png',
+            8: 'shiba_excited_1764847409328.png',
+            16: 'shiba_excited_1764847409328.png',
+            32: 'shiba_cool_1764847426626.png',
+            64: 'shiba_cool_1764847426626.png',
+            128: 'shiba_amazed_1764847447710.png',
+            256: 'shiba_amazed_1764847447710.png',
+            512: 'shiba_proud_1764847467551.png',
+            1024: 'shiba_proud_1764847467551.png',
+            2048: 'shiba_proud_1764847467551.png'
+        };
+
+        if (shibaImages[value]) {
+            console.log('Creating Shiba image for value:', value, 'with image:', shibaImages[value]);
+            const shibaImg = document.createElement('img');
+            shibaImg.src = shibaImages[value];
+            shibaImg.classList.add('tile-shiba');
+            shibaImg.onerror = () => console.error('Failed to load image:', shibaImages[value]);
+            shibaImg.onload = () => console.log('Successfully loaded image:', shibaImages[value]);
+            tile.appendChild(shibaImg);
+        } else {
+            console.log('No Shiba image for value:', value);
+        }
+
+        const numberSpan = document.createElement('span');
+        numberSpan.classList.add('tile-number');
+        numberSpan.textContent = value;
+        tile.appendChild(numberSpan);
+
         setTilePosition(tile, r, c);
         tileContainer.appendChild(tile);
         grid[r][c] = { value, element: tile, merged: false };
@@ -319,7 +382,34 @@ document.addEventListener('DOMContentLoaded', () => {
                         const mergedValue = cell.value * 2;
                         const mergedTile = document.createElement('div');
                         mergedTile.classList.add('tile', `tile-${mergedValue}`, 'tile-merged');
-                        mergedTile.textContent = mergedValue;
+
+                        // Add Shiba image for merged tile
+                        const shibaImages = {
+                            2: 'shiba_happy_1764847389696.png',
+                            4: 'shiba_happy_1764847389696.png',
+                            8: 'shiba_excited_1764847409328.png',
+                            16: 'shiba_excited_1764847409328.png',
+                            32: 'shiba_cool_1764847426626.png',
+                            64: 'shiba_cool_1764847426626.png',
+                            128: 'shiba_amazed_1764847447710.png',
+                            256: 'shiba_amazed_1764847447710.png',
+                            512: 'shiba_proud_1764847467551.png',
+                            1024: 'shiba_proud_1764847467551.png',
+                            2048: 'shiba_proud_1764847467551.png'
+                        };
+
+                        if (shibaImages[mergedValue]) {
+                            const shibaImg = document.createElement('img');
+                            shibaImg.src = shibaImages[mergedValue];
+                            shibaImg.classList.add('tile-shiba');
+                            mergedTile.appendChild(shibaImg);
+                        }
+
+                        const numberSpan = document.createElement('span');
+                        numberSpan.classList.add('tile-number');
+                        numberSpan.textContent = mergedValue;
+                        mergedTile.appendChild(numberSpan);
+
                         setTilePosition(mergedTile, positions.next.r, positions.next.c);
 
                         // Remove old tiles
