@@ -182,21 +182,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     // Add Shiba image
                     const shibaImages = {
-                        2: 'shiba_happy_1764847389696.png',
-                        4: 'shiba_happy_1764847389696.png',
-                        8: 'shiba_excited_1764847409328.png',
-                        16: 'shiba_excited_1764847409328.png',
-                        32: 'shiba_cool_1764847426626.png',
-                        64: 'shiba_cool_1764847426626.png',
-                        128: 'shiba_amazed_1764847447710.png',
-                        256: 'shiba_amazed_1764847447710.png',
-                        512: 'shiba_proud_1764847467551.png',
-                        1024: 'shiba_proud_1764847467551.png',
-                        2048: 'shiba_proud_1764847467551.png',
-                        4096: 'shiba_proud_1764847467551.png',
-                        8192: 'shiba_proud_1764847467551.png',
-                        16384: 'shiba_proud_1764847467551.png',
-                        32768: 'shiba_proud_1764847467551.png'
+                        2: 'images/shiba_happy.png',
+                        4: 'images/shiba_happy.png',
+                        8: 'images/shiba_excited.png',
+                        16: 'images/shiba_excited.png',
+                        32: 'images/shiba_cool.png',
+                        64: 'images/shiba_cool.png',
+                        128: 'images/shiba_amazed.png',
+                        256: 'images/shiba_amazed.png',
+                        512: 'images/shiba_proud.png',
+                        1024: 'images/shiba_proud.png',
+                        2048: 'images/shiba_proud.png',
+                        4096: 'images/shiba_proud.png',
+                        8192: 'images/shiba_proud.png',
+                        16384: 'images/shiba_proud.png',
+                        32768: 'images/shiba_proud.png'
                     };
 
                     if (shibaImages[cell.value]) {
@@ -275,17 +275,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Add Shiba Inu expression based on tile value
         const shibaImages = {
-            2: 'shiba_happy_1764847389696.png',
-            4: 'shiba_happy_1764847389696.png',
-            8: 'shiba_excited_1764847409328.png',
-            16: 'shiba_excited_1764847409328.png',
-            32: 'shiba_cool_1764847426626.png',
-            64: 'shiba_cool_1764847426626.png',
-            128: 'shiba_amazed_1764847447710.png',
-            256: 'shiba_amazed_1764847447710.png',
-            512: 'shiba_proud_1764847467551.png',
-            1024: 'shiba_proud_1764847467551.png',
-            2048: 'shiba_proud_1764847467551.png'
+                2: 'images/shiba_happy.png',
+                4: 'images/shiba_happy.png',
+                8: 'images/shiba_excited.png',
+                16: 'images/shiba_excited.png',
+                32: 'images/shiba_cool.png',
+                64: 'images/shiba_cool.png',
+                128: 'images/shiba_amazed.png',
+                256: 'images/shiba_amazed.png',
+                512: 'images/shiba_proud.png',
+                1024: 'images/shiba_proud.png',
+                2048: 'images/shiba_proud.png',
+                4096: 'images/shiba_proud.png',
+                8192: 'images/shiba_proud.png',
+                16384: 'images/shiba_proud.png',
+                32768: 'images/shiba_proud.png'
         };
 
         if (shibaImages[value]) {
@@ -385,17 +389,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         // Add Shiba image for merged tile
                         const shibaImages = {
-                            2: 'shiba_happy_1764847389696.png',
-                            4: 'shiba_happy_1764847389696.png',
-                            8: 'shiba_excited_1764847409328.png',
-                            16: 'shiba_excited_1764847409328.png',
-                            32: 'shiba_cool_1764847426626.png',
-                            64: 'shiba_cool_1764847426626.png',
-                            128: 'shiba_amazed_1764847447710.png',
-                            256: 'shiba_amazed_1764847447710.png',
-                            512: 'shiba_proud_1764847467551.png',
-                            1024: 'shiba_proud_1764847467551.png',
-                            2048: 'shiba_proud_1764847467551.png'
+                            2: 'images/shiba_happy.png',
+                            4: 'images/shiba_happy.png',
+                            8: 'images/shiba_excited.png',
+                            16: 'images/shiba_excited.png',
+                            32: 'images/shiba_cool.png',
+                            64: 'images/shiba_cool.png',
+                            128: 'images/shiba_amazed.png',
+                            256: 'images/shiba_amazed.png',
+                            512: 'images/shiba_proud.png',
+                            1024: 'images/shiba_proud.png',
+                            2048: 'images/shiba_proud.png',
+                            4096: 'images/shiba_proud.png',
+                            8192: 'images/shiba_proud.png',
+                            16384: 'images/shiba_proud.png',
+                            32768: 'images/shiba_proud.png'
                         };
 
                         if (shibaImages[mergedValue]) {
